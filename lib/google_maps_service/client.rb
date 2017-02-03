@@ -10,6 +10,7 @@ require 'google_maps_service/apis/directions'
 require 'google_maps_service/apis/distance_matrix'
 require 'google_maps_service/apis/elevation'
 require 'google_maps_service/apis/geocoding'
+require 'google_maps_service/apis/places'
 require 'google_maps_service/apis/roads'
 require 'google_maps_service/apis/time_zone'
 
@@ -28,6 +29,7 @@ module GoogleMapsService
     include GoogleMapsService::Apis::DistanceMatrix
     include GoogleMapsService::Apis::Elevation
     include GoogleMapsService::Apis::Geocoding
+    include GoogleMapsService::Apis::Places
     include GoogleMapsService::Apis::Roads
     include GoogleMapsService::Apis::TimeZone
 
@@ -154,9 +156,7 @@ module GoogleMapsService
     # Build the user agent header
     # @return [String]
     def user_agent
-      sprintf('google-maps-services-ruby/%s %s',
-              GoogleMapsService::VERSION,
-              GoogleMapsService::OS_VERSION)
+      sprintf('google-maps-services-ruby/%s', GoogleMapsService::VERSION)
     end
 
     # Make API call.
